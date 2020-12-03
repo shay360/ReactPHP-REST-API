@@ -12,7 +12,18 @@ To start nodemon process just type `npm run dev`, it will start the server.php
 
 ## Development CLI
 After installing and downloading all the required packages from NPM and Composer you can use the rpc CLI tool to work with this project.<br>
-First, please run (in root project folder) `npm link`.<br>
-After running the `npm link` you can type `rpc --help` in windows or `/rpc.js --help` IN mac OS.<br>
+First, please run (in root project folder).<br>
+```shell script
+npm link
+```
+After running the `npm link` you can type<br>
+On windows
+```shell script
+rpc --help
+```
+Or on Mac
+```shell script
+./rpc.js --help
+```
 When running the command you should see the help section of the CLI.<br>
 <small>If you have any problem running the CLI please contact me</small>
