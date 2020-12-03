@@ -27,3 +27,8 @@ Or on Mac
 ```
 When running the command you should see the help section of the CLI.<br>
 <small>If you have any problem running the CLI please contact me</small>
+
+## HTTP Requests file
+If you do not want to use postman or other tool to check and test this API and you are using PHP Storm,<br>
+You can use the requests.http and run any request you want to check.<br>
+Above of every request you will find a comment with a basic explanation of the request.
