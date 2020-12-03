@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "This is a basic example for an api based on ReactPHP library.<br>",
   "main": "index.js",
+  "bin": {
+    "rpc": "rpc.js"
+  },
   "dependencies": {
     "nodemon": "^2.0.6"
   },
