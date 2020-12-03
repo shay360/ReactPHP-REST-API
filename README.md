@@ -35,8 +35,10 @@ The only reason the helpers are here, is to include an example data without the 
 When you finish to develop your API please delete Helpers directory and files and use your real data.
 
 ## Controller
-You can build a controller how ever you want.
-I decided to go on with the ReactPHP convention and to make an __invoke method. 
+You can build a controller however you want.<br>
+I decided to go on with the ReactPHP convention and to make an __invoke method. <br>
+For every endpoint, can have multiple controllers files, when every file will be take care for single method.<br>
+What it means is, that if I have endpoint with a get and post methods, I will have 2 controllers for this single endpoint. 
 
 ## HTTP Requests file
 If you do not want to use postman or other tool to check and test this API and you are using PHP Storm,<br>
