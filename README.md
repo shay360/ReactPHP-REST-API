@@ -34,6 +34,12 @@ The helpers can be found in the src folder under Helpers directory.<br>
 The only reason the helpers are here, is to include an example data without the need to integrate DB.<br>
 When you finish to develop your API please delete Helpers directory and files and use your real data.
 
+## Available Endpoints
+For this example we will use:
+1. /games - GET
+2. /games - POST
+
+
 ## Controller
 You can build a controller however you want.<br>
 I decided to go on with the ReactPHP convention and to make an __invoke method. <br>

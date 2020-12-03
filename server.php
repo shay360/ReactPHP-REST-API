@@ -1,6 +1,7 @@
 <?php
 
 use App\Games\Controller\CreateGame;
+use App\Games\Controller\GameOptions;
 use App\Games\Controller\GetAllGames;
 use FastRoute\RouteCollector;
 use Psr\Http\Message\ServerRequestInterface;
@@ -15,11 +16,13 @@ require 'vendor/autoload.php';
 $routerDispatcher = simpleDispatcher(function (RouteCollector $routes) {
    $routes->get('/games', new GetAllGames());
    $routes->post('/games', new CreateGame());
+   $routes->addRoute('OPTIONS', '/games', new GameOptions());
 });
 
 
-$loop = Factory::create();
+$loop = Factory::create(); // Create a ReactPHP event loop
 $server = new Server($loop, function (ServerRequestInterface $request) use ($routerDispatcher) {
+   // Dispatcher
    $routerInfo = $routerDispatcher->dispatch(
       $request->getMethod(), $request->getUri()->getPath()
    );
@@ -31,7 +34,7 @@ $server = new Server($loop, function (ServerRequestInterface $request) use ($rou
       case \FastRoute\Dispatcher::FOUND:
          return $routerInfo[1]($request);
    }
-
+   // Dispatcher END
    throw new LogicException('No Service');
 });
 $socketServer = new SocketServer('127.0.0.1:8000', $loop);
