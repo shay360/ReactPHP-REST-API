@@ -6,7 +6,11 @@
   "dependencies": {
     "nodemon": "^2.0.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "colors": "^1.4.0",
+    "commander": "^6.2.0",
+    "inquirer": "^7.3.3"
+  },
   "scripts": {
     "dev": "npx nodemon server.php"
   },
