@@ -38,6 +38,7 @@ When you finish to develop your API please delete Helpers directory and files an
 For this example we will use:
 1. /games - GET
 2. /games - POST
+3. /games - OPTIONS
 
 
 ## Controller

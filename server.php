@@ -19,7 +19,6 @@ $routerDispatcher = simpleDispatcher(function (RouteCollector $routes) {
    $routes->addRoute('OPTIONS', '/games', new GameOptions());
 });
 
-
 $loop = Factory::create(); // Create a ReactPHP event loop
 $server = new Server($loop, function (ServerRequestInterface $request) use ($routerDispatcher) {
    // Dispatcher
