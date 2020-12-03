@@ -1,5 +1,7 @@
 <?php
 
+use App\Games\Controller\CreateGame;
+use App\Games\Controller\GetAllGames;
 use FastRoute\RouteCollector;
 use Psr\Http\Message\ServerRequestInterface;
 use React\EventLoop\Factory;
@@ -11,12 +13,8 @@ use function FastRoute\simpleDispatcher;
 require 'vendor/autoload.php';
 
 $routerDispatcher = simpleDispatcher(function (RouteCollector $routes) {
-   $routes->get('/games', function (ServerRequestInterface $request) {
-      return new Response(
-         200, ['Content-Type' => 'application/json'],
-         json_encode(['message' => 'Get working'])
-      );
-   });
+   $routes->get('/games', new GetAllGames());
+   $routes->post('/games', new CreateGame());
 });
 
 

@@ -28,6 +28,16 @@ Or on Mac
 When running the command you should see the help section of the CLI.<br>
 <small>If you have any problem running the CLI please contact me</small>
 
+## How to work with this project
+All the data you will see in this REST API data, is managed via Helpers classes.<br>
+The helpers can be found in the src folder under Helpers directory.<br>
+The only reason the helpers are here, is to include an example data without the need to integrate DB.<br>
+When you finish to develop your API please delete Helpers directory and files and use your real data.
+
+## Controller
+You can build a controller how ever you want.
+I decided to go on with the ReactPHP convention and to make an __invoke method. 
+
 ## HTTP Requests file
 If you do not want to use postman or other tool to check and test this API and you are using PHP Storm,<br>
 You can use the requests.http and run any request you want to check.<br>
