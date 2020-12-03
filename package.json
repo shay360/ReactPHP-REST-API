@@ -1,0 +1,24 @@
+{
+  "name": "ReactPHP-REST-API",
+  "version": "1.0.0",
+  "description": "This is a basic example for an api based on ReactPHP library.<br>",
+  "main": "index.js",
+  "dependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "npx nodemon server.php"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shayzogo/ReactPHP-REST-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shayzogo/ReactPHP-REST-API/issues"
+  },
+  "homepage": "https://github.com/shayzogo/ReactPHP-REST-API#readme"
+}
