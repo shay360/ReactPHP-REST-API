@@ -1,0 +1,10 @@
+{
+    "name": "developer/react-php-rest-api",
+    "authors": [
+        {
+            "name": "Shay Zeevi",
+            "email": "shay@zogomarket.com"
+        }
+    ],
+    "require": {}
+}
