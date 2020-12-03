@@ -23,7 +23,8 @@ final class Router {
          case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
             return new Response(405, ['Content-Type' => 'application/json'], json_encode(['message' => 'Method Not Allowed']));
          case \FastRoute\Dispatcher::FOUND:
-            return $routerInfo[1]($request);
+            $params = array_values($routerInfo[2]);
+            return $routerInfo[1]($request, ...$params);
       }
       // Dispatcher END
       throw new LogicException('No Service');

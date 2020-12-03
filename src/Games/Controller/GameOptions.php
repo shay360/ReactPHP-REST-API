@@ -10,13 +10,36 @@ final class GameOptions {
       'methods' => [
          'GET' => [
             'description' => 'Will return a list of all games in the system',
-            'args' => []
+            'args' => [
+               'game_id' => [
+                  'type' => 'int',
+                  'required' => false
+               ]
+            ]
          ],
          'POST' => [
             'description' => 'Will add a new game to the system',
             'args' => [
                'game_name' => [
                   'type' => 'string',
+                  'required' => true
+               ]
+            ]
+         ],
+         'PUT' => [
+            'description' => 'Will update game selected by id',
+            'args' => [
+               'game_id' => [
+                  'type' => 'int',
+                  'required' => true
+               ]
+            ]
+         ],
+         'DELETE' => [
+            'description' => 'Will delete game selected by id',
+            'args' => [
+               'game_id' => [
+                  'type' => 'int',
                   'required' => true
                ]
             ]

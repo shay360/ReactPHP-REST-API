@@ -1,8 +1,11 @@
 <?php
 
 use App\Games\Controller\CreateGame;
+use App\Games\Controller\DeleteGame;
 use App\Games\Controller\GameOptions;
 use App\Games\Controller\GetAllGames;
+use App\Games\Controller\GetGameByID;
+use App\Games\Controller\UpdateGame;
 use FastRoute\DataGenerator\GroupCountBased;
 use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std;
@@ -18,7 +21,10 @@ $loop = Factory::create(); // Create a ReactPHP event loop
 // Build the REST API Routes
 $routes = new RouteCollector(new Std(), new GroupCountBased()); // Build a string as FastRout need it
 $routes->get('/games', new GetAllGames());
+$routes->get('/games/{id:\d+}', new GetGameByID());
 $routes->post('/games', new CreateGame());
+$routes->put('/games/{id:\d+}', new UpdateGame());
+$routes->delete('/games/{id:\d+}', new DeleteGame());
 $routes->addRoute('OPTIONS', '/games', new GameOptions()); // If not one of the get, post, put, delete etc... use addRoute and set method
 // Build the REST API Routes END
 
