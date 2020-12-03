@@ -11,6 +11,10 @@ class GamesHelper {
       'game_4'
    ];
 
+   /**
+    * Return a stub example for games list in the system
+    * @return string[]
+    */
    public static function getGames() {
       return self::games;
    }
