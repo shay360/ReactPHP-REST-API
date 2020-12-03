@@ -3,39 +3,25 @@
 use App\Games\Controller\CreateGame;
 use App\Games\Controller\GameOptions;
 use App\Games\Controller\GetAllGames;
+use FastRoute\DataGenerator\GroupCountBased;
 use FastRoute\RouteCollector;
-use Psr\Http\Message\ServerRequestInterface;
+use FastRoute\RouteParser\Std;
 use React\EventLoop\Factory;
-use React\Http\Message\Response;
 use React\Http\Server;
 use React\Socket\Server as SocketServer;
-use function FastRoute\simpleDispatcher;
+use App\Classes\Router;
 
 require 'vendor/autoload.php';
 
-$routerDispatcher = simpleDispatcher(function (RouteCollector $routes) {
-   $routes->get('/games', new GetAllGames());
-   $routes->post('/games', new CreateGame());
-   $routes->addRoute('OPTIONS', '/games', new GameOptions());
-});
-
 $loop = Factory::create(); // Create a ReactPHP event loop
-$server = new Server($loop, function (ServerRequestInterface $request) use ($routerDispatcher) {
-   // Dispatcher
-   $routerInfo = $routerDispatcher->dispatch(
-      $request->getMethod(), $request->getUri()->getPath()
-   );
-   switch ($routerInfo[0]) {
-      case \FastRoute\Dispatcher::NOT_FOUND:
-         return new Response(404, ['Content-Type' => 'application/json'], json_encode(['message' => 'Not Found']));
-      case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
-         return new Response(405, ['Content-Type' => 'application/json'], json_encode(['message' => 'Method Not Allowed']));
-      case \FastRoute\Dispatcher::FOUND:
-         return $routerInfo[1]($request);
-   }
-   // Dispatcher END
-   throw new LogicException('No Service');
-});
+
+$routes = new RouteCollector(new Std(), new GroupCountBased()); // Build a string as FastRout need it
+$routes->get('/games', new GetAllGames());
+$routes->post('/games', new CreateGame());
+$routes->addRoute('OPTIONS', '/games', new GameOptions());
+
+$server = new Server($loop, new Router($routes));
+
 $socketServer = new SocketServer('127.0.0.1:8000', $loop);
 $server->listen($socketServer);
 echo 'Listening on: ' . str_replace('tcp', 'http', $socketServer->getAddress()) . PHP_EOL;
