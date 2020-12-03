@@ -19,7 +19,7 @@ $loop = Factory::create(); // Create a ReactPHP event loop
 $routes = new RouteCollector(new Std(), new GroupCountBased()); // Build a string as FastRout need it
 $routes->get('/games', new GetAllGames());
 $routes->post('/games', new CreateGame());
-$routes->addRoute('OPTIONS', '/games', new GameOptions());
+$routes->addRoute('OPTIONS', '/games', new GameOptions()); // If not one of the get, post, put, delete etc... use addRoute and set method
 // Build the REST API Routes END
 
 $server = new Server($loop, new Router($routes)); // Create new server with routes using the Router class
