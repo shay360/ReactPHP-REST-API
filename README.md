@@ -1,6 +1,6 @@
 # ReactPHP-REST-API
 This is a basic example for an api based on ReactPHP library.<br>
-
+It will show how to work with endpoints, and for this example we will use Games as a main item.
 ## Dev env settings
 After cloning / downloading this repository please follow the next steps:
 1. npm install - download and install all required npm packages
