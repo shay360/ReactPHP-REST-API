@@ -1,6 +1,6 @@
 <?php
 
-namespace App\UsersBalance\Controller;
+namespace App\Controllers\UsersBalance;
 
 use Psr\Http\Message\ServerRequestInterface;
 use React\Http\Message\Response;

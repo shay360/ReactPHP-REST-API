@@ -1,15 +1,14 @@
 <?php
 
-use App\Classes\ErrorHandler;
-use App\Games\Controller\CreateGame;
-use App\Games\Controller\DeleteGame;
-use App\Games\Controller\GameOptions;
-use App\Games\Controller\GetAllGames;
-use App\Games\Controller\GetGameByID;
-use App\Games\Controller\UpdateGame;
-use App\UsersBalance\Controller\GetUserBalance;
-use App\UsersBalance\Controller\UpdateUserBalance;
-use App\UsersBalance\Controller\UserBalanceOptions;
+use App\Controllers\Games\CreateGame;
+use App\Controllers\Games\DeleteGame;
+use App\Controllers\Games\GameOptions;
+use App\Controllers\Games\GetAllGames;
+use App\Controllers\Games\GetGameByID;
+use App\Controllers\Games\UpdateGame;
+use App\Controllers\UsersBalance\GetUserBalance;
+use App\Controllers\UsersBalance\UpdateUserBalance;
+use App\Controllers\UsersBalance\UserBalanceOptions;
 use FastRoute\DataGenerator\GroupCountBased;
 use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std;

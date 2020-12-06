@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Games\Controller;
+namespace App\Controllers\Games;
 
 use Psr\Http\Message\ServerRequestInterface;
 use React\Http\Message\Response;

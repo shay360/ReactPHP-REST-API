@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Games\Helpers;
+namespace App\Controllers\Games\Helpers;
 
 class GamesHelper {
 

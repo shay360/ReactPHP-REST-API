@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Games\Controller;
+namespace App\Controllers\Games;
 
-use App\Games\Helpers\GamesHelper;
+use App\Controllers\Games\Helpers\GamesHelper;
 use Psr\Http\Message\ServerRequestInterface;
 use React\Http\Message\Response;
 
