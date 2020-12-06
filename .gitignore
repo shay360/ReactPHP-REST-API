@@ -1,10 +1,5 @@
 .idea
 node_modules
 /vendor/
+.env
 
-
-DB_NAME=reactDB
-DB_USER=root
-DB_PASS=
-DB_HOST=localhost
-DB_DRIVER=pdo_mysql
