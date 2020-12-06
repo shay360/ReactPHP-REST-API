@@ -6,6 +6,15 @@ use FastRoute\Dispatcher\GroupCountBased;
 use FastRoute\RouteCollector;
 use Psr\Http\Message\ServerRequestInterface;
 
+/**
+ * Class Router
+ * The router holds all available methods and endpoint of the rest api.
+ * When making a new request the router will first check if the request is NOT_FOUNT
+ * METHOD_NOT_AVAILABLE or FOUND,
+ * If request was not found, relevant message will return, if found, will continue with
+ * the request
+ * @package App\Classes
+ */
 final class Router {
    private $dispatcher;
 
