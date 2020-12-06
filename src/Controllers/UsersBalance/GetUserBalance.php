@@ -13,10 +13,11 @@ final class GetUserBalance {
     * a decoded body json param $request->getBody()->getContents by using RequestTool class
     * We can use both of them to manipulate data
     * @param ServerRequestInterface $request
+    * @param string $provider
     * @param int $userID
     * @return Response
     */
-   public function __invoke(ServerRequestInterface $request, int $userID) {
+   public function __invoke(ServerRequestInterface $request, string $provider, int $userID) {
       $requestBody = RequestTool::getRequestBody($request); // Get the body json of the request
       $requestData['statusCode'] = 200;
       $requestData['message'] = 'User Balance for user: ' . $userID; // User id taken from path

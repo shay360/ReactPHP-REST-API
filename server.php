@@ -32,8 +32,8 @@ $routes->addRoute('OPTIONS', '/1.0/games', new GameOptions()); // If not one of 
 // Build the Games REST API Routes END
 
 // Build the User Balance REST API
-$routes->get('/1.0/userbalance/{userId:\d+}', new GetUserBalance());
-$routes->put('/1.0/userbalance/{userId:\d+}', new UpdateUserBalance());
+$routes->get('/1.0/userbalance/{provider}/{userId:\d+}', new GetUserBalance());
+$routes->put('/1.0/userbalance/{provider}/{userId:\d+}', new UpdateUserBalance());
 $routes->addRoute('OPTIONS', '/1.0/userbalance', new UserBalanceOptions()); // If not one of the get, post, put, delete etc... use addRoute and set method
 // Build the User Balance REST API END
 
