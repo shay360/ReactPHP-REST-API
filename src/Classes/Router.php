@@ -5,6 +5,7 @@ namespace App\Classes;
 use FastRoute\Dispatcher\GroupCountBased;
 use FastRoute\RouteCollector;
 use Psr\Http\Message\ServerRequestInterface;
+use React\Http\Message\Response;
 
 /**
  * Class Router

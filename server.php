@@ -1,5 +1,6 @@
 <?php
 
+use App\Classes\ErrorHandler;
 use App\Games\Controller\CreateGame;
 use App\Games\Controller\DeleteGame;
 use App\Games\Controller\GameOptions;
@@ -42,5 +43,10 @@ $server = new Server($loop, new Router($routes)); // Create new server with rout
 
 $socketServer = new SocketServer('127.0.0.1:8000', $loop);
 $server->listen($socketServer);
+
+$server->on('error', function (Throwable $error) { // Set an error message
+   echo 'Error: ' . $error->getMessage() . PHP_EOL;
+});
+
 echo 'Listening on: ' . str_replace('tcp', 'http', $socketServer->getAddress()) . PHP_EOL;
 $loop->run();
