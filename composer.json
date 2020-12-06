@@ -9,8 +9,7 @@
     "require": {
         "react/http": "^1.1",
         "nikic/fast-route": "^1.3",
-        "react/mysql": "^0.5.4",
-        "vlucas/phpdotenv": "^5.2"
+        "react/mysql": "^0.5.4"
     },
     "autoload": {
         "psr-4": {
