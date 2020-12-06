@@ -8,9 +8,12 @@ use React\Http\Message\Response;
 
 class DeleteGame {
    public function __invoke(ServerRequestInterface $request, string $id) {
+      $requestData['statusCode'] = 200;
+      $requestData['message'] = 'Create New Game';
+      $requestData['success'] = true;
       return new Response(
-         200, ['Content-Type' => 'application/json'],
-         ResponseBuilder::setResponse('DELETE request /games/' . $id)
+         $requestData['statusCode'], ['Content-Type' => 'application/json'],
+         ResponseBuilder::setResponse($requestData)
       );
    }
 }

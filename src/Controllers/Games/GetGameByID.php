@@ -9,9 +9,13 @@ use App\Controllers\Games\Helpers\GamesHelper;
 
 class GetGameByID {
    public function __invoke(ServerRequestInterface $request, string $id) {
+      $requestData['statusCode'] = 200;
+      $requestData['message'] = GamesHelper::games[$id];
+      $requestData['success'] = true;
       return new Response(
-         200, ['Content-Type' => 'application/json'],
-         ResponseBuilder::setResponse(GamesHelper::games[$id])
+         $requestData['statusCode'],
+         ['Content-Type' => 'application/json'],
+         ResponseBuilder::setResponse($requestData)
       );
    }
 }

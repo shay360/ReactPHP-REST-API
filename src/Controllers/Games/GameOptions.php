@@ -49,9 +49,12 @@ final class GameOptions {
    ];
 
    public function __invoke(ServerRequestInterface $request) {
+      $requestData['statusCode'] = 200;
+      $requestData['message'] = self::OPTIONS;
+      $requestData['success'] = true;
       return new Response(
-         200, ['Content-Type' => 'application/json'],
-         ResponseBuilder::setResponse(self::OPTIONS)
+         $requestData['statusCode'], ['Content-Type' => 'application/json'],
+         ResponseBuilder::setResponse($requestData)
       );
    }
 }

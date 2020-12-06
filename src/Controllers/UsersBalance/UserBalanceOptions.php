@@ -31,9 +31,12 @@ final class UserBalanceOptions {
    ];
 
    public function __invoke(ServerRequestInterface $request) {
+      $requestData['statusCode'] = 200;
+      $requestData['message'] = self::OPTIONS;
+      $requestData['success'] = true;
       return new Response(
          200, ['Content-Type' => 'application/json'],
-         ResponseBuilder::setResponse(self::OPTIONS)
+         ResponseBuilder::setResponse($requestData)
       );
    }
 }

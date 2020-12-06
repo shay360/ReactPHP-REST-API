@@ -9,10 +9,13 @@ use React\Http\Message\Response;
 
 final class GetAllGames {
    public function __invoke(ServerRequestInterface $request) {
+      $requestData['statusCode'] = 200;
+      $requestData['message'] = GamesHelper::games;
+      $requestData['success'] = true;
       return new Response(
-         200,
+         $requestData['statusCode'],
          ['Content-Type' => 'application/json'],
-         ResponseBuilder::setResponse(GamesHelper::games)
+         ResponseBuilder::setResponse($requestData)
       );
    }
 }
