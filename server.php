@@ -14,12 +14,17 @@ use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std;
 use React\EventLoop\Factory;
 use React\Http\Server;
+use React\MySQL\Factory as MysqlFactory;
 use React\Socket\Server as SocketServer;
 use App\Classes\Router;
 
 require 'vendor/autoload.php';
 
+$env = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . 'env.ini');
+
 $loop = Factory::create(); // Create a ReactPHP event loop
+$mysql = new MysqlFactory($loop);
+$connection = $mysql->createLazyConnection($env('DB_USER') . ':@' . $env('DB_HOST') . '/' . $env('DB_NAME'));
 
 // Build the Games REST API Routes
 $routes = new RouteCollector(new Std(), new GroupCountBased()); // Build a string as FastRout need it
