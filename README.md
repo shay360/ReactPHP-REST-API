@@ -75,3 +75,7 @@ endpoint.
 If you do not want to use postman or other tool to check and test this API and you are using PHP Storm,<br>
 You can use the requests.http and run any request you want to check.<br>
 Above of every request you will find a comment with a basic explanation of the request.
+
+## Router class
+The router class will valid that the request is valid and if an endpoint is not found it will return the error response.<br>
+If the route is found and method is allowed it will dispatch the relevant endpoint
