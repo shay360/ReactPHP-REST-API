@@ -2,7 +2,7 @@
 
 namespace App\Games\Controller;
 
-use App\Helpers\GamesHelper;
+use App\Games\Helpers\GamesHelper;
 use Psr\Http\Message\ServerRequestInterface;
 use React\Http\Message\Response;
 
