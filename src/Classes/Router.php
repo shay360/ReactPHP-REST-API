@@ -29,9 +29,15 @@ final class Router {
       );
       switch ($routerInfo[0]) {
          case \FastRoute\Dispatcher::NOT_FOUND:
-            return new Response(404, ['Content-Type' => 'application/json'], json_encode(['message' => 'Not Found']));
+            $requestData['statusCode'] = 404;
+            $requestData['message'] = 'Not Found';
+            $requestData['success'] = false;
+            return new Response($requestData['statusCode'], ['Content-Type' => 'application/json'], ResponseBuilder::setResponse($requestData));
          case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
-            return new Response(405, ['Content-Type' => 'application/json'], json_encode(['message' => 'Method Not Allowed']));
+            $requestData['statusCode'] = 405;
+            $requestData['message'] = 'Method Not Allowed';
+            $requestData['success'] = false;
+            return new Response($requestData['statusCode'], ['Content-Type' => 'application/json'], ResponseBuilder::setResponse($requestData));
          case \FastRoute\Dispatcher::FOUND:
             $params = array_values($routerInfo[2]);
             return $routerInfo[1]($request, ...$params);
