@@ -23,17 +23,17 @@ $loop = Factory::create(); // Create a ReactPHP event loop
 
 // Build the Games REST API Routes
 $routes = new RouteCollector(new Std(), new GroupCountBased()); // Build a string as FastRout need it
-$routes->get('/games', new GetAllGames());
-$routes->get('/games/{gameId:\d+}', new GetGameByID());
-$routes->post('/games', new CreateGame());
-$routes->put('/games/{gameId:\d+}', new UpdateGame());
-$routes->delete('/games/{gameId:\d+}', new DeleteGame());
-$routes->addRoute('OPTIONS', '/games', new GameOptions()); // If not one of the get, post, put, delete etc... use addRoute and set method
+$routes->get('/1.0/games', new GetAllGames());
+$routes->get('/1.0/games/{gameId}', new GetGameByID());
+$routes->post('/1.0/games', new CreateGame());
+$routes->put('/1.0/games/{gameId}', new UpdateGame());
+$routes->delete('/1.0/games/{gameId}', new DeleteGame());
+$routes->addRoute('OPTIONS', '/1.0/games', new GameOptions()); // If not one of the get, post, put, delete etc... use addRoute and set method
 // Build the Games REST API Routes END
 
 // Build the User Balance REST API
-$routes->get('/userbalance/{userId:\d+}', new GetUserBalance());
-$routes->put('/userbalance/{userId:\d+}', new UpdateUserBalance());
+$routes->get('/1.0/userbalance/{userId:\d+}', new GetUserBalance());
+$routes->put('/1.0/userbalance/{userId:\d+}', new UpdateUserBalance());
 
 $routes->addRoute('OPTIONS', '/userbalance', new UserBalanceOptions()); // If not one of the get, post, put, delete etc... use addRoute and set method
 // Build the User Balance REST API END

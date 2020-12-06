@@ -5,10 +5,18 @@ namespace App\Controllers\Games\Helpers;
 class GamesHelper {
 
    const games = [
-      'game_1',
-      'game_2',
-      'game_3',
-      'game_4'
+      'game_1' => [
+         'name' => 'The game of Shay'
+      ],
+      'game_2' => [
+         'name' => 'The game of Serjo'
+      ],
+      'game_3' => [
+         'name' => 'The game of Eli'
+      ],
+      'game_4' => [
+         'name' => 'The game of Eden'
+      ]
    ];
 
    /**
