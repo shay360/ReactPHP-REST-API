@@ -20,7 +20,7 @@ final class GetUserBalance {
    public function __invoke(ServerRequestInterface $request, string $provider, int $userID) {
       $requestBody = RequestTool::getRequestBody($request); // Get the body json of the request
       $requestData['statusCode'] = 200;
-      $requestData['message'] = 'User Balance for user: ' . $userID; // User id taken from path
+      $requestData['message'] = 'User Balance for user: ' . $userID . ' From provider: ' . $provider;
       $requestData['success'] = true;
       return new Response(
          $requestData['statusCode'], ['Content-Type' => 'application/json'],
