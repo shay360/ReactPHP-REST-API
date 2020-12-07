@@ -18,6 +18,7 @@ final class GetUserBalance {
     * @return Response
     */
    public function __invoke(ServerRequestInterface $request, string $provider, int $userID) {
+      RequestTool::isWhiteListedIP($provider);
       $requestBody = RequestTool::getRequestBody($request); // Get the body json of the request
       $requestData['statusCode'] = 200;
       $requestData['message'] = 'User Balance for user: ' . $userID . ' From provider: ' . $provider;
