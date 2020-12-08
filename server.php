@@ -1,6 +1,7 @@
 <?php
 
 use App\Classes\SystemTools;
+use App\Controllers\Games\BaseController;
 use App\Controllers\Games\CreateGame;
 use App\Controllers\Games\DeleteGame;
 use App\Controllers\Games\GameOptions;
@@ -16,12 +17,27 @@ use FastRoute\RouteParser\Std;
 use React\EventLoop\Factory;
 use React\Http\Server;
 use App\Classes\Router;
+use React\MySQL\ConnectionInterface;
+use React\MySQL\QueryResult;
 
 require 'vendor/autoload.php';
 
 $env = SystemTools::getSystemEnv();
 
 $loop = Factory::create(); // Create a ReactPHP event loop
+
+$factory = new \React\MySQL\Factory($loop);
+//$factory->createConnection('root:root@localhost:3306/reactDB')
+//   ->then(function (ConnectionInterface $connection){
+//      $connection->query('show tables')
+//         ->then(function (QueryResult $result) {
+//            print_r($result->resultRows);
+//         });
+//   });
+
+$specialConnection = $factory->createConnection('root:root@localhost:3306/reactDB');
+
+BaseController::init($specialConnection);
 
 // Build the Games REST API Routes
 $routes = new RouteCollector(new Std(), new GroupCountBased()); // Build a string as FastRout need it
@@ -49,4 +65,7 @@ $server->on('error', function (Throwable $error) { // Set an error message
 });
 
 echo 'Listening on: ' . str_replace('tcp', 'http', $socketServer->getAddress()) . PHP_EOL;
+
+
+
 $loop->run();
